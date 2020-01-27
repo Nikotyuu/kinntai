@@ -1,0 +1,2 @@
+class EditBasicInfoController < ApplicationController
+end
