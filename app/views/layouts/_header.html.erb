@@ -5,10 +5,26 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "ホーム", root_path %></li>
         <% if logged_in? %>
-          <% if current_user.admin? %>
-            <li><%= link_to "全てのユーザー", users_path, class: "header-list" %></li>
-            <li><%= link_to "勤怠情報の修正", edit_basic_info_user_path(current_user), class: "header-list" %></li>
+        <li>
+          <% if current_user.admin? && !current_user?(@users) %>
+          <%= link_to "ユーザー一覧", users_path  %>
           <% end %>
+        </li>
+        <li>
+          <% if current_user.admin? && !current_user?(@users) %>
+          <%= link_to "出勤社員一覧", "" %>
+          <% end %>
+        </li>
+          <li>
+          <% if current_user.admin? && !current_user?(@users) %>
+          <%= link_to "基本情報の修正", "" %>
+          <% end %>
+        </li>
+        <li>
+          <% if current_user.admin? && !current_user?(@users) %>
+          <%= link_to "拠点情報の修正", "" %>
+          <% end %>
+        </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               メニュー <b class="caret"></b>
