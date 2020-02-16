@@ -18,6 +18,12 @@
   </table>
 </div>
 
+<div class="btn">
+  <%= link_to "【所属長承認申請のお知らせ】", "" %>
+  <%= link_to "【勤怠変更申請のお知らせ】", "" %>
+  <%= link_to "【残業申請のお知らせ】", "" %>
+</div>
+
 <div class="btn-users-show">
   <%= link_to "1ヶ月の勤怠編集へ", attendances_edit_one_month_user_path(date: @first_day), class: "btn btn-success" %>
 </div>
@@ -88,6 +94,7 @@
             <% end %>
           </td>
           <td><%= day.note %></td>
+          <!-- 終了予定時間 -->
           <td></td>
           <td></td>
           <td></td>

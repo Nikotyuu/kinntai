@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @attendances_list = Attendance.where(name: current_user.name).where.not(user_id: params[:id])
     @worked_sum = @attendances.where.not(started_at: nil).count
   end
 
@@ -69,6 +70,7 @@ class UsersController < ApplicationController
         redirect_to(root_url)
       end
    end
+   
 
   private
 
