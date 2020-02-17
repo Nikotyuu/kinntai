@@ -18,10 +18,17 @@
   </table>
 </div>
 
-<div class="btn">
-  <%= link_to "【所属長承認申請のお知らせ】", "" %>
-  <%= link_to "【勤怠変更申請のお知らせ】", "" %>
-  <%= link_to "【残業申請のお知らせ】", "" %>
+<div>
+  <h4><%= link_to "【所属長承認申請のお知らせ】", "", class: "btn1" %></h4>
+  <h4><%= link_to "【勤怠変更申請のお知らせ】", "", class: "btn1" %></h4>
+  <h4><%= link_to "【残業申請のお知らせ】", "", class:"btn1" %></h4>
+</div>
+
+<div class="btn btn2">
+  <%= link_to "勤怠を編集","" %>
+  <%= link_to "CSV出力", "" %>
+  <%= link_to "勤怠修正ログ（承認済）", "" %>
+  
 </div>
 
 <div class="btn-users-show">
@@ -115,7 +122,10 @@
         <td></td>
         <td></td>
         <td></td>
-        <td></td>
+        <td>
+          <%= "所属長承認　未" %>
+          <h4><%= link_to "申請", class: "" %></h4>
+        </td>
       </tr>
     </tfoot>
   </table>
