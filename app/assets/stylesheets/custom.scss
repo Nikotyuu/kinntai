@@ -118,7 +118,14 @@ p {
   color: #000;
 }
 
+.btn1:hover {
+  color: #c0c0c0;
+}
+
 .btn2 {
-  background-color: #248;
+  background-color: #00f;
   color: #fff;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
 }
