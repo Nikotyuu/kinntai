@@ -123,8 +123,13 @@
         <td></td>
         <td></td>
         <td>
-          <%= "所属長承認　未" %>
-          <h5><%= link_to "申請", class: "" %></h5>
+          <p><%= "所属長承認　未" %></p>
+           <select class="form-control">
+             <option></option>
+             <option>上長A</option>
+             <option>上長B</option>
+           </select>
+          <%= link_to "申請", class: "btn btn-primary"  %>
         </td>
       </tr>
     </tfoot>
