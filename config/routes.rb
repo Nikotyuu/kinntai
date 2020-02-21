@@ -10,10 +10,15 @@ Rails.application.routes.draw do
 
   resources :users do
     member do
-      get 'edit_basic_info', to: 'users#edit_basic_info'
+      get 'edit_basic_info'
       patch 'update_basic_info'
+      patch 'update_user_info'
+      get 'attendances_edit_log'
       get 'attendances/edit_one_month'
-      patch 'attendances/update_one_month' # この行が追加対象です。
+      patch 'attendances/update_one_month' # この行が追加対象です。'
+      get 'edit1_basic_info'
+      patch 'update_basic1_info'
+ 
     end
     resources :attendances, only: :update
   end
