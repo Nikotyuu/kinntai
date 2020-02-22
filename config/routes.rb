@@ -18,6 +18,10 @@ Rails.application.routes.draw do
       patch 'attendances/update_one_month' # この行が追加対象です。'
       get 'edit1_basic_info'
       patch 'update_basic1_info'
+      get 'edit2_basic_info'
+      patch 'update_basic2_info'
+      get 'kyoten_info'
+      patch 'update_kyoten_info'
  
     end
     resources :attendances, only: :update

@@ -20,7 +20,7 @@
 
 <div>
   <h4><%= link_to "【所属長承認申請のお知らせ】", "", class: "btn1" %></h4>
-  <h4><%= link_to "【勤怠変更申請のお知らせ】", "", class: "btn1" %></h4>
+  <h4><%= link_to "【勤怠変更申請のお知らせ】", edit2_basic_info_user_path(@user), remote: true, class: "btn1" %></h4>
   <h4><%= link_to "【残業申請のお知らせ】", "", class:"btn1" %></h4>
 </div>
 
@@ -74,7 +74,7 @@
     <tbody>
       <% @attendances.each do |day| %>
         <tr>
-          <td><%= link_to "残業申請", edit1_basic_info_user_path(@user) ,class: "btn btn-primary" %></td>
+          <td><%= link_to "残業申請", edit1_basic_info_user_path(@user), remote: true, class: "btn btn-primary" %></td>
           <td><%= l(day.worked_on, format: :short) %></td>
           <td>
             <% if day.worked_on.wday == 6 %>
@@ -138,3 +138,4 @@
 
 <!--モーダルウインドウ表示-->
 <div id="edit1_basic_info" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+<div id="edit2_basic_info" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
