@@ -31,10 +31,6 @@
   
 </div>
 
-<div class="btn-users-show">
-  <%= link_to "1ヶ月の勤怠編集へ", attendances_edit_one_month_user_path(date: @first_day), class: "btn btn-success" %>
-</div>
-
 <div>
   <table class="table table-bordered table-condensed table-hover" id="table-attendances">
     <thead>
@@ -45,8 +41,8 @@
       </tr>
     <thoot>
       <tr>
-        <td colspan = "8">【実績】</td>
-        <td colspan = "6">【所定外勤務】</td>
+        <th colspan = "8">【実績】</th>
+        <th colspan = "6">【所定外勤務】</th>
       </tr>
     </thoot>
       <tr>
@@ -137,5 +133,5 @@
 </div>
 
 <!--モーダルウインドウ表示-->
-<div id="edit1_basic_info" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
-<div id="edit2_basic_info" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+<div id="edit1-basic-info" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+<div id="edit2-basic-info" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>

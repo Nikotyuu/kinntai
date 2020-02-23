@@ -15,9 +15,9 @@ Rails.application.routes.draw do
       patch 'update_user_info'
       get 'attendances_edit_log'
       get 'attendances/edit_one_month'
-      patch 'attendances/update_one_month' # この行が追加対象です。'
-      get 'edit1_basic_info'
-      patch 'update_basic1_info'
+      patch 'attendances/update_one_month'
+      get 'edit1_basic_info' #この行が残業申請モーダルウィンドウです
+      patch 'update_basic1_info' #この行が残業申請モーダルウィンドウです
       get 'edit2_basic_info'
       patch 'update_basic2_info'
       get 'kyoten_info'

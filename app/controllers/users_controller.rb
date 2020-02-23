@@ -50,6 +50,7 @@ class UsersController < ApplicationController
 
   def edit_basic_info
   end
+  
 
   def update_basic_info
     if @user.update_attributes(basic_info_params)
@@ -71,6 +72,8 @@ class UsersController < ApplicationController
       end
    end
    
+   def kyoten_info
+   end
 
   private
 
