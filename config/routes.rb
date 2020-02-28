@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   root 'static_pages#top'
   get '/signup', to: 'users#new'
-
+  get 'users/kyoten', to: 'users#kyoten'
   # ログイン機能
   get    '/login', to: 'sessions#new'
   post   '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+  
+
   
 
   resources :users do
@@ -20,8 +22,6 @@ Rails.application.routes.draw do
       patch 'update_basic1_info' #この行が残業申請モーダルウィンドウです
       get 'edit2_basic_info'
       patch 'update_basic2_info'
-      get 'kyoten_info'
-      patch 'update_kyoten_info'
  
     end
     resources :attendances, only: :update

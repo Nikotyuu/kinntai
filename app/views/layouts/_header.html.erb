@@ -22,7 +22,7 @@
         </li>
         <li>
           <% if current_user.admin? && !current_user?(@users) %>
-          <%= link_to "拠点情報の修正", "" %>
+          <%= link_to "拠点情報の修正", users_kyoten_path %>
           <% end %>
         </li>
           <li class="dropdown">

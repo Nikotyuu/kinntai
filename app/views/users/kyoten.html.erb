@@ -1,8 +1,8 @@
-<% provide(:title, @user.name) %>
+<% provide(:title, "拠点") %>
 <h1>拠点一覧</h1>
 
 <div>
-    <table>
+    <table class="table table-bordered table-condensed user-table">
       <tr>
         <td></td>
         <td></td>
@@ -11,8 +11,16 @@
         <td>拠点種類</td>
       </tr>
       <tr>
-        <td><%= link_to "修正", "", class="btn btn-primary" %></td>
-        <td><%= link_to "削除", "", class="btn btn-primary" %></td>
+        <td></td>
+        <td><%= link_to "削除", "", class: "btn btn-primary" %></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+    <table class="table table-bordered table-condensed user-table">
+      <tr>
+        <td colspan= "5"><%= link_to "拠点情報追加", "", class: "btn btn-primary" %></td>
       </tr>
     </table>
 </div>
