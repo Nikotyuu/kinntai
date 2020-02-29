@@ -24,6 +24,10 @@ Rails.application.routes.draw do
       patch 'update_basic1_info' #この行が残業申請モーダルウィンドウです
       get 'edit2_basic_info'
       patch 'update_basic2_info'
+      get 'edit3_basic_info'
+      patch 'update_basic3_info'
+      get 'edit4_basic_info'
+      patch 'update_basic4_info'
  
     end
     resources :attendances, only: :update
