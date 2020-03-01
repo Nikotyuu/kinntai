@@ -7,15 +7,14 @@
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
-      <h1 class="modal-title"><%= @user.name %>からの勤怠変更申請</h1>
+      <h5 class="modal-title"><%= @user.name %>からの勤怠変更申請</h5>
     </div>
     <div class="modal-body">
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
           <%= form_with(model: @user, url: update_basic_info_user_path(@user), local: true, method: :patch) do |f| %>
             <%= render 'shared/error_messages', object: @user %>
-
-            <table class="table table-bordered table-condensed table-hover" id="table-users">
+            <table class="table table-bordered table-condensed" id="table-attendances">
                 <tr>
                   <td rowspan="3">日付</td>
                   <td rowspan="3">曜日</td>
@@ -59,7 +58,6 @@
                   <td></td>
                 </tr>
             </table>
-              
 
             <div class="center">
               <%= f.submit yield(:button_text), class: "btn btn-primary btn-#{yield(:class_text)}" %>
