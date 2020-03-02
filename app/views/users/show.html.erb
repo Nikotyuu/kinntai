@@ -19,9 +19,21 @@
 </div>
 
 <div>
-  <h4><%= link_to "【所属長承認申請のお知らせ】", edit3_basic_info_user_path(@user), remote: true, class: "btn1" %></h4>
-  <h4><%= link_to "【勤怠変更申請のお知らせ】", edit2_basic_info_user_path(@user), remote: true, class: "btn1" %></h4>
-  <h4><%= link_to "【残業申請のお知らせ】", edit4_basic_info_user_path(@user), remote: true, class:"btn1" %></h4>
+  <h4>
+    <% if current_user.superior? && !current_user?(@users) %>
+      <%= link_to "【所属長承認申請のお知らせ】", edit3_basic_info_user_path(@user), remote: true, class: "btn1" %>
+    <% end %>
+    </h4>
+  <h4>
+    <% if current_user.superior? && !current_user?(@users) %>
+      <%= link_to "【勤怠変更申請のお知らせ】", edit2_basic_info_user_path(@user), remote: true, class: "btn1" %>
+    <% end %>  
+    </h4>
+  <h4>
+    <% if current_user.superior? && !current_user?(@users) %>
+      <%= link_to "【残業申請のお知らせ】", edit4_basic_info_user_path(@user), remote: true, class:"btn1" %>
+    <% end %>  
+    </h4>
 </div>
 
 <div>
