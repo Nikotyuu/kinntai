@@ -2,12 +2,29 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :edit_basic_info, :update_basic_info, :edit1_basic_info, :update_basic1_info, :edit2_basic_info, :update_basic2_info, :edit3_basic_info, :update_basic3_info, :edit4_basic_info, :update_basic4_info]
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy, :edit_basic_info, :update_basic_info, :edit1_basic_info, :update_basic1_info, :edit2_basic_info, :update_basic2_info, :edit3_basic_info, :update_basic3_info, :edit4_basic_info, :update_basic4_info]
   before_action :correct_user, only: [:edit, :update]
-  before_action :admin_user, only: :destroy
+  before_action :admin_user, only: [:destroy, :index, :kintaihensyuu, :kyoten]
   before_action :set_one_month, only: :show
 
   def index
-      @users = User.paginate(page: params[:page]).search(params[:search])
+    @users = User.all
+      respond_to do |format|
+        format.html do
+        end
+        format.csv do
+          send_data render_to_string, filename: "(ファイル名).csv", type: :csv
+        end
+      end
+    if params[:search]
+      @users = User.where('LOWER(name) LIKE ?', "%#{params[:search][:name].downcase}%").paginate(page: params[:page])
+    else
+      @users = User.paginate(page: params[:page])
+    end
   end
+  
+    def import
+     User.import(params[:file])
+     redirect_to root_url
+    end
 
   def show
     @attendances_list = Attendance.where(name: current_user.name).where.not(user_id: params[:id])
@@ -71,15 +88,6 @@ class UsersController < ApplicationController
       end
    end
    
-   def import
-    if params[:csv_file].blank?
-      redirect_to(users_url, alert: 'インポートするcsvファイルを選択してください')
-    else
-      num = Admin::User.import(params[:csv_file])
-      redirect_to(users_url, notice: "#{num.to_s}件のユーザー情報を追加/更新しました")
-    end
-    
-   end
    
 
   private

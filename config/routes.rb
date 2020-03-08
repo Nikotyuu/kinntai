@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   
 
   resources :users do
+    collection { post :import }
     member do
       get 'edit_basic_info'
       patch 'update_basic_info'
@@ -28,8 +29,11 @@ Rails.application.routes.draw do
       patch 'update_basic3_info'
       get 'edit4_basic_info'
       patch 'update_basic4_info'
- 
     end
+    
     resources :attendances, only: :update
   end
+  resources :users do
+    collection {post :import}
+    end
 end
