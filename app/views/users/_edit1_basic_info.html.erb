@@ -14,7 +14,7 @@
         <div class="col-md-10 col-md-offset-1">
           <%= form_with(model: @user, url: update_basic1_info_user_path(@user), local: true, method: :patch) do |f| %>
             <%= render 'shared/error_messages', object: @user %>
-            <table class="table table-bordered table-condensed">
+            <table class="table table-bordered table-condensed user-table">
               <thead>
                 <tr>
                   <th>日付</th>
@@ -28,18 +28,15 @@
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td><%= f.check_box :next_day %></td>
+                  <td><%= f.text_field :process, class: "form-control" %></td>
+                  <td><%= f.collection_select :name, User.where(superior: true), :name, :name, :prompt => "上長を選択してください" %></td>
                 </tr>
               </thead>
             </table>
 
-            <div class="center">
-              <%= f.submit yield(:button_text), class: "btn btn-primary btn-#{yield(:class_text)}" %>
-              <button type="button" class="btn btn-default btn-<%= yield(:class_text) %>" data-dismiss="modal">
-                キャンセル
-              </button>
+            <div class="modal-footer">
+              <%= f.submit "変更を送信する", class: "btn btn-primary btn-lg btn-#{yield(:class_text)} form-control" %>
             </div>
           <% end %>
         </div>
