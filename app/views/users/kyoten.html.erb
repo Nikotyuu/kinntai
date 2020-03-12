@@ -1,26 +1,23 @@
-<% provide(:title, "拠点") %>
-<h1>拠点一覧</h1>
+<% provide(:title, 'Sign up') %>
+<% provide(:class_text, 'label-signup') %>
+<% provide(:button_text, '拠点情報追加') %>
 
-<div>
-    <table class="table table-bordered table-condensed user-table">
-      <tr>
-        <td></td>
-        <td></td>
-        <td>拠点番号</td>
-        <td>拠点名</td>
-        <td>拠点種類</td>
-      </tr>
-      <tr>
-        <td></td>
-        <td><%= link_to "削除", "", class: "btn btn-primary" %></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </table>
-    <table class="table table-bordered table-condensed user-table">
-      <tr>
-        <td colspan= "5"><%= link_to "拠点情報追加", "", class: "btn btn-primary" %></td>
-      </tr>
-    </table>
+<h1>拠点情報追加</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with(model: @base, local: true) do |f| %>
+
+    <%= f.label :name, class: "label-#{yield(:class_text)}" %>
+    <%= f.text_field :name, class: "form-control" %>
+    
+    <%= f.label :attendance_sort, class: "label-#{yield(:class_text)}" %></br>
+    <%= f.select :attendance_sort, 
+        {選択してください: "選択してください",
+        出勤: "出勤",
+        退勤: "退勤" } %>
+    
+    <%= f.submit yield(:button_text), class: "btn btn-primary btn-block btn-#{yield(:class_text)}" %>
+    <% end %>
+  </div>
 </div>

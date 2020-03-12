@@ -24,22 +24,12 @@
                </tr>
                <tr>
                  <td></td>
+                 <td><%= f.collection_select :name, User.where(superior: true), :name, :name, :prompt => "上長を選択してください" %></td>
                  <td>
-                  <select>
-                    <option>なし</option>
-                    <option>申請中</option>
-                    <option>承認</option>
-                    <option>否認</option>
-                  </select>
+                  <%= f.check_box :next_day %>
                  </td>
                  <td>
-                  <%= f.label :remember_me, class: "checkbox inline", for: "remember_me" do %>
-                    <%= f.check_box :remember_me, id: "remember_me" %>
-                  <% end %>
-                 </td>
-                 <td>
-                  <%= link_to "確認", "", class: "btn btn-primary" %>
-                 </td>
+                  <%= link_to "確認", "", class: "btn btn-primary" %></td>
                </tr>
              </thead>
            </table>
