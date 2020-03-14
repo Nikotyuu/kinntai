@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :edit_basic_info, :update_basic_info, :edit1_basic_info, :update_basic1_info, :edit2_basic_info, :update_basic2_info, :edit3_basic_info, :update_basic3_info, :edit4_basic_info, :update_basic4_info]
-  before_action :logged_in_user, only: [:index, :edit, :update, :destroy, :edit_basic_info, :update_basic_info, :edit1_basic_info, :update_basic1_info, :edit2_basic_info, :update_basic2_info, :edit3_basic_info, :update_basic3_info, :edit4_basic_info, :update_basic4_info]
+  #before_action :logged_in_user, only: [:index, :edit, :update, :destroy, :edit_basic_info, :update_basic_info, :edit1_basic_info, :update_basic1_info, :edit2_basic_info, :update_basic2_info, :edit3_basic_info, :update_basic3_info, :edit4_basic_info, :update_basic4_info]
   before_action :correct_user, only: [:edit, :update]
-  before_action :admin_user, only: [:show, :destroy, :update]
+  before_action :admin_user, only: [:destroy, :update]
   before_action :admin_or_correct_user, only: [:show, :edit1_basic_info]
   before_action :set_one_month, only: [:show, :edit1_basic_info, :update_basic1_info]
 
@@ -93,7 +93,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :department, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :affiliation, :emplpyee_unmber, :uid, :basic_work_time, :designated_work_end_time, :designated_work_start_time, :department, :password, :password_confirmation)
     end
 
     def basic_info_params
